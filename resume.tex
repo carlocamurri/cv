@@ -1,0 +1,234 @@
+\documentclass[a4paper, 10pt]{article}
+
+% Lorem ipsum
+\usepackage{lipsum}
+
+% Setting font
+\usepackage{fontspec}
+\setmainfont[
+    Path=fonts/open-sans/,
+    BoldFont=OpenSans-Bold.ttf,
+    ItalicFont=OpenSans-Italic.ttf
+]{OpenSans-Regular.ttf}
+
+% Margins
+\usepackage[left=1cm, right=1cm, top=0.9cm, bottom=0.9cm]{geometry}
+
+% Remove page numbering
+\pagenumbering{gobble}
+
+% Paragraph indentation
+\setlength{\parindent}{0pt}
+
+% Section header styling
+\usepackage{titlesec}
+%% \titleformat{command}[shape]{format}{label}{sep}{before}[after]
+\titleformat{\section}[display]{\large\bfseries}{}{0pt}{}[\titlerule]
+
+% Section header spacing
+%% \titlespacing*{command}{left}{beforesep}{aftersep}[right]
+\titlespacing*{\section}{0pt}{12pt}{3pt}[0pt]
+
+% Tabular for details
+\usepackage{array}
+\usepackage{tabu}
+\newenvironment{details}{\addvspace{3pt} \begin{tabu} to \textwidth {@{}X[2l] X[1r]@{}}}{\end{tabu}}
+
+% Tabular for details specific for work experience modified so that everything fits in one line
+\newenvironment{workdetails}{\addvspace{3pt} \begin{tabu} to \textwidth {@{}X[4l] X[1r]@{}}}{\end{tabu}}
+
+% Tabular for initial personal details
+\newenvironment{personaldetails}{\begin{tabu} to \textwidth {@{}X[1l] X[1.5c] X[1r]@{}}}{\end{tabu}}
+
+% URL links styling
+\usepackage{xcolor}
+\usepackage{hyperref}
+\definecolor{linkcolor}{rgb}{0, 0.2, 0.6}
+\hypersetup{
+    colorlinks,
+    breaklinks,
+    urlcolor=linkcolor,
+    linkcolor=linkcolor
+}
+
+% Styling for company names
+\newcommand{\company}[1]{\normalsize \textbf{#1}}
+
+% Styling for time ranges
+\newcommand{\timerange}[1]{\normalsize #1}
+
+% Styling for position title
+\newcommand{\position}[1]{\normalsize \textit{#1}}
+
+% Styling for project title
+\newcommand{\project}[1]{\normalsize \textbf{#1}}
+
+% Styling for award/certificate title
+\newcommand{\award}[1]{\normalsize \textbf{#1}}
+
+% Styling for leadership task
+\newcommand{\leadership}[1]{\normalsize \textbf{#1}}
+
+% Styling for skill titles
+\newcommand{\skill}[1]{\small \textbf{#1}}
+
+% Bullet point styling for extra information
+\usepackage{enumitem}
+\newenvironment{info}{\small \begin{itemize}[
+    noitemsep,
+    topsep=-3pt,
+    leftmargin=*,
+    align=parleft
+]}{\end{itemize}}
+
+% C#
+\newcommand{\Csh}{C\#}
+
+
+\begin{document}
+    
+    \centerline{\Large \bfseries Carlo Camurri}
+    \begin{personaldetails}
+        GitHub: \href{https://github.com/carlocamurri}{carlocamurri} & & \href{mailto:carlo.camurri98@gmail.com}{carlo.camurri98@gmail.com} \\
+        LinkedIn: \href{https://www.linkedin.com/in/carlo-camurri/}{carlo-camurri} & Bilingual Italian/English; French (B2 level) & +44 (0)7729751799
+    \end{personaldetails}
+
+    \section*{Education}
+
+        \begin{details} 
+            \company{University College London (UCL)} & \timerange{September 2016 -- Present}
+        \end{details}
+
+        \begin{info}
+            \item Master of Engineering in Computer Science (3rd Year)
+            \item Year 1: first class, 81\% average (top 10-percentile); Year 2: first class, 85\% average; Year 3: first class, 87\% average
+        \end{info}
+
+        \begin{details}
+            \company{The International School in Genoa} & \timerange{September 2014 -- May 2016}
+        \end{details}
+
+        \begin{info}
+            \item International Baccaulaureate (IB) 39/45 overall; 7 (A*) in Higher Level Physics
+            \item Extended Essay (Physics): ``Projectile motion of small extended objects''; using \href{http://www.infomus.org/eyesweb_ita.php}{EyesWeb} -- software for real time multimodal analysis
+        \end{info}
+
+    \section*{Work Experience}
+    
+        \begin{workdetails}
+            \company{G-Research}, \position{Software Engineering Intern} & \timerange{June 2019 -- Present}
+        \end{workdetails}
+    
+        \begin{info}
+            \item Worked on several applications for the management and scheduling of jobs in large clusters of Windows and Linux based nodes
+            \item Developed a new application to provide researchers with an interface to monitor and cancel their jobs
+            \item Technologies: .NET Core (\Csh{}), Angular (TypeScript), SQL, \href{https://research.cs.wisc.edu/htcondor/}{HTCondor}, Docker, Kubernetes, Jenkins
+        \end{info}
+    
+        \begin{workdetails}
+            \company{NeuroResponse, NHS Innovation Accelerator}, \position{Full Stack Software Engineer} & \timerange{July 2018 -- June 2019}
+        \end{workdetails}
+
+        \begin{info}
+            \item Developed full stack application to enable patients suffering from multiple sclerosis to record their symptoms and fill in questionnaires pertaining to their courses of medication
+            \item Comprised of a REST API, a mobile application for the patients and a web portal for the clinicians
+            \item Technologies: Python, AWS (Lambda, DynamoDB, Cognito), Android (Kotlin), React
+        \end{info}
+
+        \begin{workdetails}
+            \company{Casa Paganini -- InfoMus Research Center, DIBRIS, University of Genoa}, \position{Research Intern} & \timerange{June -- July 2017}
+        \end{workdetails}
+
+        \begin{info}
+            \item Applied machine learning techniques to the analysis of a motion capture repository of human movement, such as random forests and hierarchical clustering; supervised by Prof. Maurizio Mancini
+            \item Technologies: Python (Pandas, Numpy, Scikit-Learn), \href{http://www.qualisys.com/software/qualisys-track-manager/}{Qualisys motion capture system}
+        \end{info}
+
+    \section*{Projects}
+
+        \begin{details}
+            \project{NotiPlex, an Android multi-device notification framework} & \timerange{October 2017 -- March 2018}
+        \end{details}
+        
+        \begin{info}
+            \item In collaboration with Microsoft, Inria, UCL
+            \item Team Leader of development team tasked with developing a notification management application
+            \item The application enables users to create configurations specifying which device should receive incoming notifications based on time and location
+            \item Technologies: Android (Java), Firebase, Node.js
+        \end{info}
+
+        \begin{details}
+            \project{VR Health Living} & \timerange{January -- May 2017}
+        \end{details}
+        
+        \begin{info}
+            \item In collaboration with Imperial College Healthcare NHS Trust and UCL
+            \item Developed a virtual reality dancing application to encourage children between the ages of 8-12 to do physical activity within a context of gamification
+            \item The application was designed to be portable and was deployed with support for Samsung VR
+            \item Technologies: C\#, Unity, Samsung VR
+        \end{info}
+
+    \section*{Awards and Certificates}
+
+        \begin{details}
+            \award{LearnHack 4.0 Hackathon} & \timerange{November 2017}
+        \end{details}
+        
+        \begin{info}
+            \item LabNotes Challenge Winner
+            \item Created lab notebook to help researchers log their data and notes for future use in research papers using React and Node.js 
+        \end{info}
+        
+        \begin{details}
+            \award{Bank of America Trading Application Hackathon} & \timerange{November 2017}
+        \end{details}
+        
+        \begin{info}
+            \item Third place
+            \item Developed front-end and back-end for a trading application using Google Trends and Aylien News APIs
+        \end{info}
+
+        \begin{details}
+            \award{Machine Learning course by Andrew Ng, Stanford University Online} & \timerange{December 2016 -- March 2017}
+        \end{details}
+
+        \begin{info}
+            \item Topics covered: Linear and logistic regression, regularization, neural networks, SVM, PCA, k-means clustering, anomaly detection, recommender systems
+        \end{info}
+
+    \section*{Leadership and Service}
+
+        \begin{details}
+            \leadership{Outreach Co-Director, Students' Union UCL Technology Society} & \timerange{January 2018 -- June 2018}
+        \end{details}
+
+        \begin{info}
+            \item Actively contributed in organizing software engineering-related talks and events involving external companies such as Next Jump and KPMG. 
+        \end{info}
+
+        \begin{details}
+            \leadership{Hackstart: Teaching basic Machine Learning} & \timerange{October 2017}
+        \end{details}
+
+        \begin{info}
+            \item Hosted interactive workshop using Python and Jupyter to teach Numpy and basic unsupervised machine learning techniques (K-means algorithm) to both high school and university students with non-technical backgrounds
+        \end{info}
+
+    \section*{Skills}
+        
+        \skill{Programming Languages}: 
+        \small{Proficient in Python, Java, C, JavaScript; Familiar with Kotlin, C\#, C++, TypeScript, Haskell, Matlab}
+
+        \skill{Web Development}: 
+        \small{React, Node.js, HTML, CSS}
+
+        \skill{Frameworks and Tools}:
+        \small{Android, TensorFlow, Unity, EyesWeb, Git, Docker}
+
+        \skill{Software Libraries}:
+        \small{Keras, Scikit-learn, Numpy, Pandas}
+
+        \skill{Operating Systems}: 
+        \small{GNU/Linux (Ubuntu, Debian), Android, Microsoft Windows}
+
+    \end{document}
